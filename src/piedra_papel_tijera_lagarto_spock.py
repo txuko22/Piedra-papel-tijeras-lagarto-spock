@@ -16,19 +16,13 @@ class GameResult(IntEnum):
     Defeat = 1
     Tie = 2
 
-
-Victories = {
-    GameAction.Rock: GameAction.Paper,
-    GameAction.Rock: GameAction.Spock,
-    GameAction.Paper: GameAction.Scissors,
-    GameAction.Paper: GameAction.Lizard,
-    GameAction.Scissors: GameAction.Rock,
-    GameAction.Scissors: GameAction.Spock,
-    GameAction.Spock: GameAction.Paper,
-    GameAction.Spock: GameAction.Lizard,
-    GameAction.Lizard: GameAction.Rock,
-    GameAction.Lizard: GameAction.Scissors
-}
+Victories = { 
+    GameAction.Rock: [GameAction.Paper, GameAction.Spock], 
+    GameAction.Paper: [GameAction.Scissors, GameAction.Lizard], 
+    GameAction.Scissors: [GameAction.Rock, GameAction.Spock], 
+    GameAction.Spock: [GameAction.Paper, GameAction.Lizard], 
+    GameAction.Lizard: [GameAction.Rock, GameAction.Scissors]
+    }
 
 def assess_game(user_action, computer_action):
 
@@ -66,7 +60,7 @@ def assess_game(user_action, computer_action):
             game_result = GameResult.Defeat
         else:
             print("Scissors cuts paper. You lost!")
-            game_result = GameResult.Defeat
+            game_result = GameResult.Defeat     
 
     # You picked Scissors
     elif user_action == GameAction.Scissors:
@@ -81,8 +75,8 @@ def assess_game(user_action, computer_action):
             game_result = GameResult.Victory
         else:
             print("Scissors cuts paper. You won!")
-            game_result = GameResult.Victory
-
+            game_result = GameResult.Victory           
+            
     # You picked Spock
     elif user_action == GameAction.Spock:
         if computer_action == GameAction.Rock:
@@ -96,7 +90,7 @@ def assess_game(user_action, computer_action):
             game_result = GameResult.Defeat
         else:
             print("Lizard poisons spock. You lost!")
-            game_result = GameResult.Defeat
+            game_result = GameResult.Defeat   
 
     # You picked Lizard
     elif user_action == GameAction.Lizard:
@@ -111,7 +105,7 @@ def assess_game(user_action, computer_action):
             game_result = GameResult.Defeat
         else:
             print("Scissors decapitates lizard. You lost!")
-            game_result = GameResult.Defeat
+            game_result = GameResult.Defeat                           
 
     return game_result
 
@@ -122,7 +116,7 @@ def get_computer_action(lista_acciones_usuario, n):
     else:
         new_user_action = Counter(lista_acciones_usuario)
         action_final = max(new_user_action, key=lambda x: new_user_action[x])
-        computer_action = Victories[action_final]
+        computer_action = random.choice(Victories[action_final])
 
     print(f"Computer picked {computer_action.name}.")
 
