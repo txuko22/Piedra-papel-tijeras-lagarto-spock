@@ -48,5 +48,7 @@ Lo primero de todo fue añadir que el programa solicitase un número de partidas
 La estrategia a seguir es la siguiente: en la primera partida que se juega el programa siempre va a sacar piedra (hacemos que escoja una opción estática ya que sino en la primera partida el usuario siempre perdía), en las demás partidas el algoritmo se basa en escoger la opción contraria a la que más usa el usuario (la miramos en el diccionario ya que lo guardamos anteriormente). 
 Aparte de eso también llevamos la cuenta de las partidas ganadas respecto a las partidas jugadas para poder mirar el porcentaje de victoria del usuario.
 
+La estrategia es la misma en el caso de la extensión, solo que a la hora de escoger la opción ganadora al movimiento del usuario, en este caso hay dos opciones que ganan a cualquier movimiento del usuario. Por ello para que no siempre escogiese la primera opción del vector que almacena que movimiento gana a otro, añadí que a la hora de dar la opción ganadora sea un random la que elija entre las dos opciones posibles.
+
 # Bibliografía
 - Inteligencia Artificial un enfoque moderno, 2da Ed (Stuart Russell y Peter Norvig)
