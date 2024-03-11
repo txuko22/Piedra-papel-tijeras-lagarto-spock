@@ -50,5 +50,13 @@ Aparte de eso también llevamos la cuenta de las partidas ganadas respecto a las
 
 La estrategia es la misma en el caso de la extensión, solo que a la hora de escoger la opción ganadora al movimiento del usuario, en este caso hay dos opciones que ganan a cualquier movimiento del usuario. Por ello para que no siempre escogiese la primera opción del vector que almacena que movimiento gana a otro, añadí que a la hora de dar la opción ganadora sea un random la que elija entre las dos opciones posibles.
 
+# Instalación y ejecución del proyecto
+- Creamos un nuevo entorno de trabajo que cuente con python 3.9 (ya que fue la versión usada para la producción y testeo del código):
+`conda create -n nombre_del_entorno python=3.9`
+- Nos situamos en el entorno creado:
+`conda activate nombre_del_entorno`
+- Instalamos las versiones de los paquetes presentes en el archivo de *requirements.txt*, mediante el comando: `pip install -r requirements.txt`
+- Ejecutamos el proyecto.
+
 # Bibliografía
 - Inteligencia Artificial un enfoque moderno, 2da Ed (Stuart Russell y Peter Norvig)
